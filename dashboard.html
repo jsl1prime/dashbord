@@ -1,0 +1,349 @@
+﻿<!doctype html>
+<html lang="en-us">
+<head>
+<meta charset="utf-8">
+<title>중부발전 노드대시보드</title>
+<link href="dbord.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript" src="js/dhb_graph.js"></script>
+<script type="text/javascript" src="js/dhb_graph_02.js"></script>
+<script type="text/javascript" src="js/cvline.js"></script>
+<script type="text/javascript" src="js/circle_num.js"></script>
+<script type="text/javascript" src="js/circle_num_02.js"></script>
+<script type="text/javascript" src="js/circle_num_03.js"></script>
+<script type="text/javascript" src="js/jquery.mCustomScrollbar.js"></script>
+<link rel="stylesheet" href="js/jquery.mCustomScrollbar.css" />
+<script type="text/javascript" src="js/cscroll_bar.js"></script>
+<script type="text/javascript" src="js/rhide.js"></script>
+<!--[if IE]><!-->
+<script type="text/javascript" src="js/node_value_resize.js"></script>
+<!--[endif]-->
+
+
+</head>
+<body>
+    <div id="container">
+        <div class="dhbg_wrap">
+            <div class="box-wrapper">
+
+            	<div class="help_clclr_wrap">
+                	<span class="hc_hptit">PROBE 상태설명</span>
+                    <div class="hpclbox">
+                    	<div class="hp_clcr sblue"></div>
+                    	<span class="hc_hptxt">서버연결</span>
+                    </div>
+                    <div class="hpclbdt">
+                    	<div class="hp_clcr sgrn"></div>
+                    	<span class="hc_hptxt">측정중</span>
+                    </div>
+                    <div class="hpclbdt">
+                    	<div class="hp_clcr sgry"></div>
+                    	<span class="hc_hptxt">연결끊김</span>
+                    </div>
+                </div>
+
+                <div class="prove_activate">
+                  	<span class="hc_hptit">PROBE 활성대수</span>
+                    <span class="prove_num_txt"> 6 / 7 (83%)</span>
+                    <div class="prvprgss_bar">
+                      <div class="prvactive_bar"></div>
+                    </div>
+                </div>
+
+                <section class="status">
+                    <div class="dh_center">
+                    	<canvas id="circle"></canvas><!-- 서버연결 라인 -->
+                        <div id="cle_num_box"></div><!-- 노드 원들 -->
+                        <div class="cnt_clc cntred"><div class="cnthc cnred"></div></div><!-- 가운데서버 원 -->
+                        <span class="srv_txt">Server / 울산본사</span>
+                        <div class="nde_namwp"></div><!-- 노드설명택스트 타원 -->
+                        <div class="popup_btnwrap"></div>
+                    </div>
+                </section>
+
+                <section class="right"><!-- 마지막측정데이터 -->
+                	<div class="lastd_wrap">
+                      <!-- 올리기 -->
+
+                    	<div class="left_info">
+                        <div class="datb_tlte">
+                          <span class="btmmitxt">현재 측정 중</span>
+                        </div>
+                        	<div class="lftn_box">
+                                <div class="lfd_box">
+                                	<div class="nde_scbox">
+                                		<span class="ndprs_txt">node #a1 / 상암공장&nbsp;&nbsp;-&nbsp;&nbsp;node #a2 / 상암공장</span>
+                                		<span class="ndprs_txt">node #a1 / 상암공장&nbsp;&nbsp;-&nbsp;&nbsp;node #a2 / 상암공장</span>
+                                		<span class="ndprs_txt">node #a1 / 상암공장&nbsp;&nbsp;-&nbsp;&nbsp;node #a2 / 상암공장</span>
+                                		<span class="ndprs_txt">node #a1 / 상암공장&nbsp;&nbsp;-&nbsp;&nbsp;node #a2 / 상암공장</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    	<div class="pv_topten">
+                        <div class="datl_tlte">
+                          <span class="btmmitxt">최근 측정결과 Top 10</span>
+                        </div>
+                        	<div class="lftn_box">
+                                <div class="lfd_box_se">
+                                	<div class="nde_scbox nde_scbox_se">
+                                        <table class="nde_tb" width="600" border="0" cellpadding="0" cellspacing="0">
+                                          <tr>
+                                            <td width="136">Probe</td>
+                                            <td width="136">측정대상</td>
+                                            <td width="136">시간</td>
+                                            <td width="40">DL</td>
+                                            <td width="40">UL</td>
+                                            <td width="40">Delay</td>
+                                            <td>결과</td>
+                                          </tr>
+                                          <tr>
+                                            <td height="1" colspan="7" bgcolor="#292e33">&nbsp;</td>
+                                          </tr>
+                                          <tr>
+                                            <td>node #a1 / 상암공장</td>
+                                            <td>node #a2 / 상암공장</td>
+                                            <td>2019-07-11 14:37:20</td>
+                                            <td>175</td>
+                                            <td>100</td>
+                                            <td>20</td>
+                                            <td>성공</td>
+                                          </tr>
+                                          <tr>
+                                            <td height="1" colspan="7" bgcolor="#292e33">&nbsp;</td>
+                                          </tr>
+                                          <tr>
+                                            <td>node #a1 / 상암공장</td>
+                                            <td>node #a2 / 상암공장</td>
+                                            <td>2019-07-11 14:37:20</td>
+                                            <td>175</td>
+                                            <td>100</td>
+                                            <td>20</td>
+                                            <td>성공</td>
+                                          </tr>
+                                          <tr>
+                                            <td height="1" colspan="7" bgcolor="#292e33">&nbsp;</td>
+                                          </tr>
+                                          <tr>
+                                            <td>node #a1 / 상암공장</td>
+                                            <td>node #a2 / 상암공장</td>
+                                            <td>2019-07-11 14:37:20</td>
+                                            <td>175</td>
+                                            <td>100</td>
+                                            <td>20</td>
+                                            <td>성공</td>
+                                          </tr>
+                                          <tr>
+                                            <td height="1" colspan="7" bgcolor="#292e33">&nbsp;</td>
+                                          </tr>
+                                          <tr>
+                                            <td>node #a1 / 상암공장</td>
+                                            <td>node #a2 / 상암공장</td>
+                                            <td>2019-07-11 14:37:20</td>
+                                            <td>175</td>
+                                            <td>100</td>
+                                            <td>20</td>
+                                            <td>성공</td>
+                                          </tr>
+                                          <tr>
+                                            <td height="1" colspan="7" bgcolor="#292e33">&nbsp;</td>
+                                          </tr>
+                                          <tr>
+                                            <td>node #a1 / 상암공장</td>
+                                            <td>node #a2 / 상암공장</td>
+                                            <td>2019-07-11 14:37:20</td>
+                                            <td>175</td>
+                                            <td>100</td>
+                                            <td>20</td>
+                                            <td>성공</td>
+                                          </tr>
+                                          <tr>
+                                            <td height="1" colspan="7" bgcolor="#292e33">&nbsp;</td>
+                                          </tr>
+                                          <tr>
+                                            <td>node #a1 / 상암공장</td>
+                                            <td>node #a2 / 상암공장</td>
+                                            <td>2019-07-11 14:37:20</td>
+                                            <td>175</td>
+                                            <td>100</td>
+                                            <td>20</td>
+                                            <td>성공</td>
+                                          </tr>
+                                          <tr>
+                                            <td height="1" colspan="7" bgcolor="#292e33">&nbsp;</td>
+                                          </tr>
+                                          <tr>
+                                            <td>node #a1 / 상암공장</td>
+                                            <td>node #a2 / 상암공장</td>
+                                            <td>2019-07-11 14:37:20</td>
+                                            <td>175</td>
+                                            <td>100</td>
+                                            <td>20</td>
+                                            <td>성공</td>
+                                          </tr>
+                                          <tr>
+                                            <td height="1" colspan="7" bgcolor="#292e33">&nbsp;</td>
+                                          </tr>
+                                          <tr>
+                                            <td>node #a1 / 상암공장</td>
+                                            <td>node #a2 / 상암공장</td>
+                                            <td>2019-07-11 14:37:20</td>
+                                            <td>175</td>
+                                            <td>100</td>
+                                            <td>20</td>
+                                            <td>성공</td>
+                                          </tr>
+                                          <tr>
+                                            <td height="1" colspan="7" bgcolor="#292e33">&nbsp;</td>
+                                          </tr>
+                                          <tr>
+                                            <td>node #a1 / 상암공장</td>
+                                            <td>node #a2 / 상암공장</td>
+                                            <td>2019-07-11 14:37:20</td>
+                                            <td>175</td>
+                                            <td>100</td>
+                                            <td>20</td>
+                                            <td>성공</td>
+                                          </tr>
+                                          <tr>
+                                            <td height="1" colspan="7" bgcolor="#292e33">&nbsp;</td>
+                                          </tr>
+                                          <tr>
+                                            <td>node #a1 / 상암공장</td>
+                                            <td>node #a2 / 상암공장</td>
+                                            <td>2019-07-11 14:37:20</td>
+                                            <td>175</td>
+                                            <td>100</td>
+                                            <td>20</td>
+                                            <td>성공</td>
+                                          </tr>
+                                          <tr>
+                                            <td height="1" colspan="7" bgcolor="#292e33">&nbsp;</td>
+                                          </tr>
+                                        </table>
+                                	</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 다운그래프 넣기 -->
+                        <div class="left_graph_box">
+                          <div class="datb_tlte">
+                          	<span class="btmmitxt">다운로드 그래프</span>
+                          </div>
+                          <div class="datb_btwrap">
+
+                                  <div class="top_bphline">
+                                      <div class="smp_violet"></div>
+                                      <span class="smp_txt">DL</span>
+                                      <div class="smp_blue smpmargin"></div>
+                                      <span class="smp_txt">UL</span>
+                                  </div>
+                                  <div id="btm_graph"></div>
+                                  <span class="gvmtxt">Mbps</span>
+                                  <span class="bvmtxt">ms</span>
+
+                          </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="bottom"><!-- 마우스엔터측정데이터 -->
+                	<div class="btm_box btmbleft ">
+                    	<div class="datb_tlte">
+                        	<span class="btmmitxt">PROBE 정보</span>
+                        </div>
+                        <div class="datb_btwrap">
+
+                              <div class="lfd_left">
+                                  <span class="brinfo_txt">PROBE 번호 :</span>
+                                  <span class="brinfo_txt">PROBE 이름 :</span>
+                                  <span class="brinfo_txt">PROBE 설명 :</span>
+                                  <span class="brinfo_txt">IP정보 :</span>
+                              </div>
+                              <div class="lfd_right">
+                                  <!-- bm_green (정상 / 노드-서버) & bm_blue (정상 / 노드-노드) -->
+                                  <span class="brinfd_txt">14 <span class="bmts_txt bm_red">(접속오류)</span></span>
+                                  <span class="brinfd_txt">node #m14</span>
+                                  <span class="brinfd_txt">선암공장</span>
+                                  <span class="brinfd_txt">192.168.3.1</span>
+                              </div>
+                              <!-- 노드샐랙트 버튼 -->
+                              <div class="node_selectbox">
+                                  <div class="rstart_btn">
+                                    <span class="resbtn_txt">재시작</span>
+                                  </div>
+                                  <div class="prbtest_btn">
+                                    <span class="resbtn_txt">PROBE간 측정</span>
+                                  </div>
+                              </div>
+
+                        </div>
+                    </div>
+
+                    <div class="btm_box btmsmleft btmsmright">
+                    	<div class="datb_tlte">
+                        	<span class="btmmitxt">측정데이터</span>
+                        </div>
+                        <div class="datb_btwrap">
+
+                                <div class="lfd_left">
+                                    <span class="prinfo_txt">마지막 측정시간 :</span>
+                                </div>
+                                <div class="lfd_right">
+                                    <span class="prinfd_txt">2019-07-11 14:37:20</span>
+                                </div>
+                                <div class="bult_box">
+                                    <div class="dl_box">
+                                        <div class="dltx_box">
+                                            <span class="dlult_txt">DL</span>
+                                            <span class="dlult_num">300</span>
+                                            <span class="dlult_knd">Mbps</span>
+                                        </div>
+                                    </div>
+                                    <div class="ul_box">
+                                        <div class="dult_line"></div>
+                                        <div class="dltx_box">
+                                            <span class="dlult_txt">UL</span>
+                                            <span class="dlult_num">300</span>
+                                            <span class="dlult_knd">Mbps</span>
+                                        </div>
+                                    </div>
+                                    <div class="delay_box">
+                                        <div class="dult_line"></div>
+                                        <div class="dltx_box">
+                                            <span class="dlult_txt">delay</span>
+                                            <span class="dlult_num">15</span>
+                                            <span class="dlult_knd">ms</span>
+                                        </div>
+                                    </div>
+                                 </div>
+
+                        </div>
+                    </div>
+
+                </section>
+
+                <div class="delay_right">
+                    <div class="datb_tlte">
+                        <span class="btmmitxt">업로드 그래프</span>
+                    </div>
+                    <div class="datb_btwrap">
+
+                              <div class="top_bphline">
+                                  <div class="smp_violet"></div>
+                                  <span class="smp_txt">DL</span>
+                                  <div class="smp_blue smpmargin"></div>
+                                  <span class="smp_txt">UL</span>
+                              </div>
+                              <div id="btm_graph"></div>
+                              <span class="gvmtxt">Mbps</span>
+                              <span class="bvmtxt">ms</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
