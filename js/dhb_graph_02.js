@@ -63,7 +63,10 @@ google.charts.setOnLoadCallback(drawChart2);
 				0: { lineWidth: 1, areaOpacity: 0.3},
 				1: { lineWidth: 1,  areaOpacity: 0.2}
 			},
-			//textStyle: { 'line-height': 9 },
+			fontSize: 9,  
+			
+			textStyle: {color: '#ff5500'},
+			
         };
 		
 		function resizeChart () {

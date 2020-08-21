@@ -2,7 +2,7 @@
 <html lang="en-us">
 <head>
 <meta charset="utf-8">
-<title>중부발전 노드대시보드</title>
+<title>현대중공업 노드대시보드</title>
 <link href="dbord.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -26,7 +26,7 @@
     <div id="container">
         <div class="dhbg_wrap">
             <div class="box-wrapper">
-
+            
             	<div class="help_clclr_wrap">
                 	<span class="hc_hptit">PROBE 상태설명</span>
                     <div class="hpclbox">
@@ -42,15 +42,7 @@
                     	<span class="hc_hptxt">연결끊김</span>
                     </div>
                 </div>
-
-                <div class="prove_activate">
-                  	<span class="hc_hptit">PROBE 활성대수</span>
-                    <span class="prove_num_txt"> 6 / 7 (83%)</span>
-                    <div class="prvprgss_bar">
-                      <div class="prvactive_bar"></div>
-                    </div>
-                </div>
-
+                
                 <section class="status">
                     <div class="dh_center">
                     	<canvas id="circle"></canvas><!-- 서버연결 라인 -->
@@ -61,16 +53,24 @@
                         <div class="popup_btnwrap"></div>
                     </div>
                 </section>
-
+                
                 <section class="right"><!-- 마지막측정데이터 -->
                 	<div class="lastd_wrap">
-                      <!-- 올리기 -->
-
-                    	<div class="left_info">
-                        <div class="datb_tlte">
-                          <span class="btmmitxt">현재 측정 중</span>
+                    	<div class="hidsh_btn"></div>
+                    	<div class="left_pst">
+                        	<span class="leti_txt">PROBE 활성대수</span>
+                            <div class="pst_wrap">
+                            	<div class="pst_box">
+                                	<div id="pst_bar"></div>
+                                    <span class="barum_txt">19</span>
+                                </div>
+                                <span class="pstnum_txt">100%</span>
+                            </div>
                         </div>
+                    	<div class="left_info">
+                        	<span class="leti_txt">현재 측정 중</span>
                         	<div class="lftn_box">
+                            	<div class="lf_bline"></div>
                                 <div class="lfd_box">
                                 	<div class="nde_scbox">
                                 		<span class="ndprs_txt">node #a1 / 상암공장&nbsp;&nbsp;-&nbsp;&nbsp;node #a2 / 상암공장</span>
@@ -81,11 +81,10 @@
                                 </div>
                             </div>
                         </div>
-                    	<div class="pv_topten">
-                        <div class="datl_tlte">
-                          <span class="btmmitxt">최근 측정결과 Top 10</span>
-                        </div>
+                    	<div class="left_info">
+                        	<span class="leti_txt">최근 측정결과 Top 10</span>
                         	<div class="lftn_box">
+                            	<div class="lf_bline"></div>
                                 <div class="lfd_box_se">
                                 	<div class="nde_scbox nde_scbox_se">
                                         <table class="nde_tb" width="600" border="0" cellpadding="0" cellspacing="0">
@@ -226,28 +225,9 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- 다운그래프 넣기 -->
-                        <div class="left_graph_box">
-                          <div class="datb_tlte">
-                          	<span class="btmmitxt">다운로드 그래프</span>
-                          </div>
-                          <div class="datb_btwrap">
-
-                                  <div class="top_bphline">
-                                      <div class="smp_violet"></div>
-                                      <span class="smp_txt">DL</span>
-                                      <div class="smp_blue smpmargin"></div>
-                                      <span class="smp_txt">UL</span>
-                                  </div>
-                                  <div id="btm_graph"></div>
-                                  <span class="gvmtxt">Mbps</span>
-                                  <span class="bvmtxt">ms</span>
-
-                          </div>
-                        </div>
                     </div>
                 </section>
-
+                
                 <section class="bottom"><!-- 마우스엔터측정데이터 -->
                 	<div class="btm_box btmbleft ">
                     	<div class="datb_tlte">
@@ -280,7 +260,7 @@
 
                         </div>
                     </div>
-
+                	
                     <div class="btm_box btmsmleft btmsmright">
                     	<div class="datb_tlte">
                         	<span class="btmmitxt">측정데이터</span>
@@ -321,27 +301,27 @@
 
                         </div>
                     </div>
+                    
+                	<div class="btm_box btmbright">
+                    	<div class="datb_tlte">
+                        	<span class="btmmitxt">그래프</span>
+                        </div>
+                        <div class="datb_btwrap">
 
+                                <div class="top_bphline">
+                                    <div class="smp_violet"></div>
+                                    <span class="smp_txt">DL</span>
+                                    <div class="smp_blue smpmargin"></div>
+                                    <span class="smp_txt">UL</span>
+                                </div>
+                                <div id="btm_graph"></div>
+                                <span class="gvmtxt">Mbps</span>
+                                <span class="bvmtxt">ms</span>
+
+                        </div>
+                    </div>
+                    
                 </section>
-
-                <div class="delay_right">
-                    <div class="datb_tlte">
-                        <span class="btmmitxt">업로드 그래프</span>
-                    </div>
-                    <div class="datb_btwrap">
-
-                              <div class="top_bphline">
-                                  <div class="smp_violet"></div>
-                                  <span class="smp_txt">DL</span>
-                                  <div class="smp_blue smpmargin"></div>
-                                  <span class="smp_txt">UL</span>
-                              </div>
-                              <div id="btm_graph"></div>
-                              <span class="gvmtxt">Mbps</span>
-                              <span class="bvmtxt">ms</span>
-                    </div>
-                </div>
-
             </div>
         </div>
     </div>
